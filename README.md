@@ -11,6 +11,7 @@ Metode penilaian konvensional sangat bergantung pada analisis penjualan yang seb
 Pembelajaran mesin menawarkan solusi yang ampuh dengan memungkinkan prediksi harga yang cepat, objektif, dan berbasis data. Dengan melatih model seperti XGBoost, Random Forest, atau Gradient Boosting pada kumpulan data historis yang besar, sistem ini dapat secara otomatis mengidentifikasi pola kompleks dan mencapai akurasi yang jauh lebih tinggi (R² > 0,90 dalam banyak kasus) dibandingkan model hedonik tradisional, sekaligus mengurangi bias dan waktu pemrosesan secara substansial [3]. Pergeseran menuju model valuasi otomatis (AVM) ini menjanjikan pasar real estat yang lebih transparan, efisien, dan adil.
 
 
+
 Referensi:
 [1] M. M. Rathore, A. Paul, A. Ahmad, and S. Rho, “Urban planning and building smart cities based on the Internet of Things using Big Data analytics,” Comput. Netw., vol. 101, pp. 63–80, Jun. 2016, doi: 10.1016/j.comnet.2015.12.023.
 [2] P. Čeh, M. Kilibarda, A. Lisec, and B. Bajat, “Machine learning in real estate research: A systematic review,” Comput. Environ. Urban Syst., vol. 85, Jan. 2021, Art. no. 101558, doi: 10.1016/j.compenvurbsys.2020.101558.
