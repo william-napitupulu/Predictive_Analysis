@@ -11,7 +11,6 @@ Metode penilaian konvensional sangat bergantung pada analisis penjualan yang seb
 Pembelajaran mesin menawarkan solusi yang ampuh dengan memungkinkan prediksi harga yang cepat, objektif, dan berbasis data. Dengan melatih model seperti XGBoost, Random Forest, atau Gradient Boosting pada kumpulan data historis yang besar, sistem ini dapat secara otomatis mengidentifikasi pola kompleks dan mencapai akurasi yang jauh lebih tinggi (R² > 0,90 dalam banyak kasus) dibandingkan model hedonik tradisional, sekaligus mengurangi bias dan waktu pemrosesan secara substansial [3]. Pergeseran menuju model valuasi otomatis (AVM) ini menjanjikan pasar real estat yang lebih transparan, efisien, dan adil.
 
 
-
 Referensi:
 [1] M. M. Rathore, A. Paul, A. Ahmad, and S. Rho, “Urban planning and building smart cities based on the Internet of Things using Big Data analytics,” Comput. Netw., vol. 101, pp. 63–80, Jun. 2016, doi: 10.1016/j.comnet.2015.12.023.
 [2] P. Čeh, M. Kilibarda, A. Lisec, and B. Bajat, “Machine learning in real estate research: A systematic review,” Comput. Environ. Urban Syst., vol. 85, Jan. 2021, Art. no. 101558, doi: 10.1016/j.compenvurbsys.2020.101558.
@@ -196,13 +195,12 @@ SVR menggunakan prinsip support vector machine untuk regresi. Algoritma ini menc
 Metode ensemble yang menggabungkan banyak decision trees (bagging). Setiap tree dilatih pada subset data yang berbeda, dan prediksi akhir adalah rata-rata dari semua trees. Hal ini mengurangi variance dan mencegah overfitting.
 
 **Parameter yang Digunakan:**
-- `n_estimators=100`: Jumlah decision trees dalam forest (100 pohon)
+- `n_estimators=100`: Jumlah decision trees dalam forest
+- `max_depth=20`: Kedalaman maksimum setiap pohon
+- `min_samples_split=5`: Minimum sampel yang dibutuhkan untuk split node
+- `min_samples_leaf=2`: Minimum sampel yang dibutuhkan di leaf node
 - `random_state=42`: Seed untuk reproduktibilitas hasil
-- **Parameter default lainnya:**
-  - `max_depth=None`: Pohon akan terus berkembang hingga daun murni
-  - `min_samples_split=2`: Minimum sampel yang dibutuhkan untuk split node
-  - `min_samples_leaf=1`: Minimum sampel yang dibutuhkan di leaf node
-  - `max_features='auto'`: Jumlah fitur yang dipertimbangkan saat mencari best split
+- `n_jobs=-1`: Menggunakan semua processor core yang tersedia
 
 **Kelebihan:**  
 - Robust terhadap overfitting karena averaging
@@ -223,14 +221,11 @@ Metode ensemble yang menggabungkan banyak decision trees (bagging). Setiap tree 
 Metode ensemble yang membangun pohon keputusan secara sekuensial (boosting). Setiap pohon baru memperbaiki kesalahan dari pohon sebelumnya dengan memprediksi residual error, sehingga model terus meningkat secara iteratif.
 
 **Parameter yang Digunakan:**
-- `n_estimators=100`: Jumlah boosting stages (100 iterasi)
+- `n_estimators=100`: Jumlah boosting stages
+- `learning_rate=0.1`: Shrinkage factor untuk kontribusi setiap tree
+- `max_depth=5`: Kedalaman maksimum individual trees
+- `min_samples_split=5`: Minimum sampel untuk split internal node
 - `random_state=42`: Seed untuk reproduktibilitas hasil
-- **Parameter default lainnya:**
-  - `learning_rate=0.1`: Shrinkage factor untuk kontribusi setiap tree
-  - `max_depth=3`: Kedalaman maksimum individual trees
-  - `min_samples_split=2`: Minimum sampel untuk split internal node
-  - `min_samples_leaf=1`: Minimum sampel di leaf node
-  - `subsample=1.0`: Fraksi sampel yang digunakan untuk fit individual trees
 
 **Kelebihan:**  
 - Sering memberikan akurasi prediksi tertinggi

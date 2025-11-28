@@ -30,6 +30,9 @@ print(df.info())
 print("\nData Description:")
 print(df.describe())
 
+print("\nChecking for duplicates:")
+print("Jumlah duplikasi: ", df.duplicated().sum())
+
 # Visualizations (Optional in script, but good to have code)
 # plt.figure(figsize=(12, 5))
 # plt.subplot(1, 2, 1)
@@ -57,12 +60,25 @@ X_test_scaled = scaler.transform(X_test)
 # 4. Modeling
 # Random Forest
 print("\nTraining Random Forest...")
-rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model = RandomForestRegressor(
+    n_estimators=100,
+    max_depth=20,
+    min_samples_split=5,
+    min_samples_leaf=2,
+    random_state=42,
+    n_jobs=-1
+)
 rf_model.fit(X_train_scaled, y_train)
 
 # Gradient Boosting
 print("Training Gradient Boosting...")
-gb_model = GradientBoostingRegressor(n_estimators=100, random_state=42)
+gb_model = GradientBoostingRegressor(
+    n_estimators=100,
+    learning_rate=0.1,
+    max_depth=5,
+    min_samples_split=5,
+    random_state=42
+)
 gb_model.fit(X_train_scaled, y_train)
 
 # Linear Regression
